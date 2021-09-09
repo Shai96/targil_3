@@ -6,5 +6,6 @@ RUN apt-get -y install vim
 RUN apt-get -y install zip
 RUN apt-get -y install unzip 
 COPY zip_job.py /tmp/zip_job.py
-CMD ["cat /etc/os-release","[-f /tmp/zip_job.py] && echo "Found" || echo "Not found""]
+CMD ["python3","-m", "zip_job.py"] && ["cat /etc/os-release","[-f /tmp/zip_job.py] && echo "Found" || echo "Not found""]
+
  
