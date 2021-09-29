@@ -23,7 +23,7 @@ L.append(d)
 print(L)
 
 a_txt = 'file name that was created using with open to check'
-if os.path.isfile('a_txt'):
+if os.path.isfile(a_txt):
     print(f'The file - a_txt: exists')
 else:
     print('not exists')
