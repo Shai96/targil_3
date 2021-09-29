@@ -7,3 +7,4 @@ RUN apt-get -y install zip
 RUN apt-get -y install unzip 
 COPY zip_job.py /tmp/zip_job.py
 CMD ["cat /etc/os-release",["-f /tmp/zip_job.py"] && echo "Found" || echo "Not found"]
+
