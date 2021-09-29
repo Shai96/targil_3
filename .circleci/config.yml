@@ -1,13 +1,63 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
-version: 2.1
-# Use a package of configuration called an orb.
-orbs:
-  # Declare a dependency on the welcome-orb
-  welcome: circleci/welcome-orb@0.4.1
-# Orchestrate or schedule a set of jobs
-workflows:
-  # Name the workflow "welcome"
-  welcome:
-    # Run the welcome/run job in its own container
-    jobs:
-      - welcome/run
+import os
+import zipfile
+
+
+L = []
+
+a = open("a_txt", "a+")
+a = 'a_txt'
+L.append(a)
+
+b = open("b_txt", "a+")
+b = 'b_txt'
+L.append(b)
+
+c = open("c_txt", "a+")
+c = 'c_txt'
+L.append(c)
+
+d = open("d_txt", "a+")
+d = 'd_txt'
+L.append(d)
+
+print(L)
+
+a_txt = 'file name that was created using with open to check'
+if os.path.isfile('a_txt'):
+    print(f'The file - a_txt: exists')
+else:
+    print('not exists')
+b_txt = 'file name that was created using with open to check'
+if os.path.isfile('b_txt'):
+    print(f'The file - b_txt: exists')
+else:
+    print('not exists')
+
+c_txt = 'file name that was created using with open to check'
+if os.path.isfile('c_txt'):
+    print(f'The file - c_txt: exists')
+else:
+    print('not exists')
+
+d_txt = 'file name that was created using with open to check'
+if os.path.isfile('d_txt'):
+    print(f'The file - d_txt: exists')
+
+else:
+    print('not exists')
+
+
+with zipfile.ZipFile('a_1.2.0.zip', 'w') as my_zip:
+    my_zip.write('a_txt')
+
+with zipfile.ZipFile('b_1.2.0.zip', 'w') as my_zip:
+    my_zip.write('b_txt')
+
+with zipfile.ZipFile('c_1.2.0.zip', 'w') as my_zip:
+    my_zip.write('c_txt')
+
+with zipfile.ZipFile('d_1.2.0.zip', 'w') as my_zip:
+    my_zip.write('d_txt')
+
+for filename in ['a_1.2.0.zip', 'b_1.2.0.zip', 'c_1.2.0.zip', 'd_1.2.0.zip']:
+    print('%20s  %s' % (filename, zipfile.is_zipfile(filename)))
